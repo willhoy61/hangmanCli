@@ -1,17 +1,17 @@
 var letter = require ("./letter.js");
 
 function word(choseWord) {
-	this.word = ["monkey", "giraffe", "building", "fence"];
+	this.chosenword = ["monkey", "giraffe", "building", "fence"];
 	this.letters = [];
-	this.blanks = blanks;
-	this.guessesLeft = word.length;
+	this.blanks = "_";
+	this.trysLeft = 10;
 
-	for ( var i = 0; i < this.word.length; i++) {
-		this.letters.push( new Letter.Letter(this.word[i]));
+	for ( var i = 0; i < this.chosenword.length; i++) {
+		this.letters.push( new Letter.Letter(this.chosenword[i]));
 	}
 };
 word.prototype.getWord = function() {
-return this.word[Math.floor(Math.random() * this.word.length)];
+return this.chosenword[Math.floor(Math.random() * this.chosenword.length)];
 };
 word.prototype.checkIfLetter = function(letter) {
 this.notCorrect = true;
@@ -23,7 +23,7 @@ if (this.guesses.indexOf(letter) != -1) {
 		this.guesses.push(letter);
 			for (var i = 0; i < this.letters.length; i++) {
 				if (this.letters[i].letter.toLowerCase() == letter) {
-					thhis.notCorrect = false;
+					this.notCorrect = false;
 					this.letters[i].show = true;
 				}
 			}
