@@ -1,0 +1,22 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willhoy61/hangmanCli.git"
+  },
+  "author": "will",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willhoy61/hangmanCli/issues"
+  },
+  "homepage": "https://github.com/willhoy61/hangmanCli#readme",
+  "dependencies": {
+    "inquirer": "^4.0.1"
+  }
+}
