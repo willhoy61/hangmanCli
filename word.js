@@ -1,6 +1,6 @@
 var letter = require ("./letter.js");
 
-function word(choseWord) {
+function Word(choseWord) {
 	this.chosenword = ["monkey", "giraffe", "building", "fence"];
 	this.letters = [];
 	this.blanks = "_";
@@ -10,10 +10,10 @@ function word(choseWord) {
 		this.letters.push( new Letter.Letter(this.chosenword[i]));
 	}
 };
-word.prototype.getWord = function() {
+Word.prototype.getWord = function() {
 return this.chosenword[Math.floor(Math.random() * this.chosenword.length)];
 };
-word.prototype.checkIfLetter = function(letter) {
+Word.prototype.checkIfLetter = function(letter) {
 this.notCorrect = true;
 this.isLetterValid = false;
 var letter = letter.toLowerCase();
@@ -43,6 +43,5 @@ Word.prototype.print = function() {
 };
 
 module.exports = {
-	module.exports = {
 		Word
 	};

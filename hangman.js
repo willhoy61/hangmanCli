@@ -1,19 +1,17 @@
 'use strict';
-var inquirer = require("inquirer");
+
+var inquirer = require('inquirer');
 var letter = require("./letter.js");
 var word = require("./word.js");
 
 function userGuess() {
   console.log(this.chosenword);
 
-inquirer.prompt([{ 
+inquirer.prompt([{
   
-    type: 'letter',
-    name: 'text',
+    type: 'input',
+    name: 'letter',
     message: "Choose a letter to guess the word"
-     
-      console.log(this.blanks);
-      checkIfLetter();
      }]).then(function(user) {
       var letter = user.letter;
       newWord.checkLetter(letter);
@@ -30,12 +28,25 @@ inquirer.prompt([{
           console.log(" you have " + newWord.trysLeft + " moves left");
           userGuess();
         }
-      }
-     })
+    });
+}
+// fuctin handles game reset
+function playAgain() {
+  inquirer.prompt([{
+    type: 'input',
+    message: "Would you like to play again? type 'y' for yes and 'n' for now",
+    name: 'playAgain' 
+  }]).then(function(user) {
+    var answer = user.playAgain;
+    if (answer == 'y') {
+      game.userPrompt(function() {
+        newWord = new word.Word(game.chosenWord);
+        userGuess();
+      });
+    } else if (answer == 'n') {
+      console.log("end");
+      return;
+    }
+  })
+}
 
-
-
-
-game.userPrompt(function() {
-  newWord = new word.Word(game.chosenWord);
-  userGuess();
